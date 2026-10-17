@@ -1,0 +1,25 @@
+﻿
+@model Practical_6.Models.Product
+
+<h2>Edit Product</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    @Html.HiddenFor(m => m.Id)
+
+    <p>Product Name</p>
+    @Html.TextBoxFor(m => m.Name, new { required = "required" })
+
+    <p>Product Price</p>
+    @Html.TextBoxFor(m => m.Price,
+        new { type = "number", min = "0.01", step = "0.01", required = "required" })
+
+    <br />
+    <br />
+    <input type="submit" value="Update Product" />
+}
+
+<br />
+@Html.ActionLink("Back to Product List", "Index")
